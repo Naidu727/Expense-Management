@@ -7,11 +7,6 @@ const exp = require('constants');
 const connectDb = require('./config/connectDB');
 const path = require('path');
 
-app.use(express.static(path.join(__dirname, 'client/build')));
-
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
-});
 
 dotenv.config();
 //database call
@@ -19,6 +14,11 @@ connectDb();
 //rest object
 const app = express();
 //middlewares
+app.use(express.static(path.join(__dirname, 'client/build')));
+
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+});
 app.use(morgan('dev'));
 app.use(express.json());
 app.use(cors());
