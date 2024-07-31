@@ -3,7 +3,6 @@ import {Form,Input,message} from "antd"
 import { Link,useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import Password from 'antd/es/input/Password'
-import { set } from 'mongoose'
 import "../styles/LoginPage.css"
 const Login = () => {
     const img =
