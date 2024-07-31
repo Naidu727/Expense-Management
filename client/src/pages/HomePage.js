@@ -217,6 +217,7 @@ const HomePage = () => {
               <Select.Option value="medical">Medical</Select.Option>
               <Select.Option value="fee">Fee</Select.Option>
               <Select.Option value="tax">Tax</Select.Option>
+              <Select.Option value="other">Other</Select.Option>
             </Select>
           </Form.Item>
           <Form.Item label="Date" name="date">
