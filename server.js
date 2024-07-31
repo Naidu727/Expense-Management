@@ -5,6 +5,14 @@ const dotenv = require('dotenv');
 const colors = require('colors');
 const exp = require('constants');
 const connectDb = require('./config/connectDB');
+const path = require('path');
+
+app.use(express.static(path.join(__dirname, 'client/build')));
+
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+});
+
 dotenv.config();
 //database call
 connectDb();
