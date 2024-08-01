@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Modal, Form, Input, Select, message, Table, DatePicker } from "antd";
 import Layout from '../components/Layout/Layout';
@@ -20,7 +19,6 @@ const HomePage = () => {
   const [viewData, setViewData] = useState('table');
   const [editable, setEditable] = useState(null);
 
-  // Initialize filter values from localStorage if available
   useEffect(() => {
     const storedFrequency = localStorage.getItem('frequency');
     const storedSelectedDate = JSON.parse(localStorage.getItem('selectedDate'));
@@ -74,22 +72,19 @@ const HomePage = () => {
       const user = JSON.parse(localStorage.getItem('user'));
       setLoading(true);
 
-      // Check if the frequency is 'custom' and selectedDate is empty
       if (frequency === 'custom' && (!selectedDate || selectedDate.length === 0)) {
         setLoading(false);
-        setAllTransaction([]); // Clear previous transactions
-        return; // Exit early if no custom date range is selected
+        setAllTransaction([]);
+        return;
       }
 
-      const res = await axios.post('transections/get-transection', { userid: user._id, frequency, selectedDate, type });
+      const res = await axios.post('https://expense-management-u19n.onrender.com/api/v1/transections/get-transection', { userid: user._id, frequency, selectedDate, type });
       res.data.sort((a, b) => new Date(b.date) - new Date(a.date));
 
       setLoading(false);
       setAllTransaction(res.data);
-      console.log(res.data);
     } catch (error) {
       setLoading(false);
-      console.log(error);
       message.error("Fetch Issue with Transaction");
     }
   };
@@ -101,13 +96,12 @@ const HomePage = () => {
   const handleDelete = async (record) => {
     try {
       setLoading(true);
-      await axios.post('/transections/delete-transection', { transactionId: record._id });
+      await axios.post('https://expense-management-u19n.onrender.com/api/v1/transections/delete-transection', { transactionId: record._id });
       setLoading(false);
       message.success('Transaction Deleted Successfully');
-      getAllTransactions(); // Refresh transactions after deleting
+      getAllTransactions();
     } catch (error) {
       setLoading(false);
-      console.log(error);
       message.error('Unable to delete');
     }
   };
@@ -117,22 +111,21 @@ const HomePage = () => {
       const user = JSON.parse(localStorage.getItem('user'));
       setLoading(true);
       if (editable) {
-        await axios.post('/transections/edit-transection', {
+        await axios.post('https://expense-management-u19n.onrender.com/api/v1/transections/edit-transection', {
           payload: {
             ...values, userid: user._id
           },
           transactionId: editable._id
         });
-        setLoading(false);
         message.success('Transaction Updated Successfully');
       } else {
-        await axios.post('/transections/add-transection', { ...values, userid: user._id });
-        setLoading(false);
+        await axios.post('https://expense-management-u19n.onrender.com/api/v1/transections/add-transection', { ...values, userid: user._id });
         message.success('Transaction Added Successfully');
       }
+      setLoading(false);
       setShowModal(false);
       setEditable(null);
-      getAllTransactions(); // Refresh transactions after adding or updating
+      getAllTransactions();
     } catch (error) {
       setLoading(false);
       message.error('Failed to add transaction');
@@ -141,17 +134,17 @@ const HomePage = () => {
 
   const handleFrequencyChange = (value) => {
     setFrequency(value);
-    localStorage.setItem('frequency', value); // Store in localStorage
+    localStorage.setItem('frequency', value);
   };
 
   const handleDateChange = (dates) => {
     setSelectedDate(dates);
-    localStorage.setItem('selectedDate', JSON.stringify(dates)); // Store in localStorage
+    localStorage.setItem('selectedDate', JSON.stringify(dates));
   };
 
   const handleTypeChange = (value) => {
     setType(value);
-    localStorage.setItem('type', value); // Store in localStorage
+    localStorage.setItem('type', value);
   };
 
   return (
@@ -195,47 +188,3 @@ const HomePage = () => {
         open={showModal}
         onCancel={() => setShowModal(false)}
         footer={false}
-      >
-        <Form layout='vertical' onFinish={handleSubmit} initialValues={editable}>
-          <Form.Item label="Amount" name="amount">
-            <Input type='text' />
-          </Form.Item>
-          <Form.Item label="Type" name="type">
-            <Select>
-              <Select.Option value="income">Income</Select.Option>
-              <Select.Option value="expense">Expense</Select.Option>
-            </Select>
-          </Form.Item>
-          <Form.Item label="Category" name="Category">
-            <Select>
-              <Select.Option value="salary">Salary</Select.Option>
-              <Select.Option value="tip">Tip</Select.Option>
-              <Select.Option value="project">Project</Select.Option>
-              <Select.Option value="food">Food</Select.Option>
-              <Select.Option value="movie">Movie</Select.Option>
-              <Select.Option value="bills">Bills</Select.Option>
-              <Select.Option value="medical">Medical</Select.Option>
-              <Select.Option value="fee">Fee</Select.Option>
-              <Select.Option value="tax">Tax</Select.Option>
-              <Select.Option value="other">Other</Select.Option>
-            </Select>
-          </Form.Item>
-          <Form.Item label="Date" name="date">
-            <Input type='date' />
-          </Form.Item>
-          {/* <Form.Item label="Reference" name='reference'>
-            <Input type='text' />
-          </Form.Item> */}
-          <Form.Item label="Description" name='description'>
-            <Input type='text' />
-          </Form.Item>
-          <div className='d-flex justify-content-end'>
-            <button className='btn btn-primary' type='submit'>SAVE</button>
-          </div>
-        </Form>
-      </Modal>
-    </Layout>
-  );
-}
-
-export default HomePage;
