@@ -19,6 +19,7 @@ const Login = () => {
             navigate('/');
         } catch (error) {
             setLoading(false);
+            console.error("Error during login:", error);
             message.error(error.response?.data?.message || 'Something went wrong');
         }
     };
@@ -32,7 +33,7 @@ const Login = () => {
     return (
         <>
             <div className="login-page">
-                {loading && <spinner />}
+                {loading && <Spinner />}
                 <div className="row container">
                     <h1 className='text-exp'>Expense Management System</h1>
                     <div className="col-md-6">
