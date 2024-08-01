@@ -32,7 +32,7 @@ const Login = () => {
     return (
         <>
             <div className="login-page">
-                {loading && <Spinner />}
+                {loading && <spinner />}
                 <div className="row container">
                     <h1 className='text-exp'>Expense Management System</h1>
                     <div className="col-md-6">
