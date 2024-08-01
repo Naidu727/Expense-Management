@@ -3,7 +3,7 @@ const cors = require('cors');
 const morgan = require('morgan');
 const dotenv = require('dotenv');
 const path = require('path');
-const connectDb = require('./config/connectDB');
+const mongoose = require('mongoose');
 
 // Initialize environment variables
 dotenv.config();
@@ -12,12 +12,27 @@ dotenv.config();
 const app = express();
 
 // Connect to database
+const connectDb = async () => {
+    try {
+        await mongoose.connect(process.env.MONGO_URI, {
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+        });
+        console.log("Database connected successfully");
+    } catch (error) {
+        console.error("Database connection error:", error);
+        process.exit(1);
+    }
+};
 connectDb();
 
 // Middlewares
 app.use(morgan('dev'));
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+    origin: ['http://localhost:3000', 'https://expense-management-u19n.onrender.com'],
+    credentials: true
+}));
 
 // Serve static files from the React app
 app.use(express.static(path.join(__dirname, 'client/build')));
