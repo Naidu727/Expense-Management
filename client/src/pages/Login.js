@@ -1,21 +1,17 @@
-// login.js
-
 import React, { useState, useEffect } from 'react';
 import { Form, Input, message } from 'antd';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import Password from 'antd/es/input/Password';
 import "../styles/LoginPage.css";
 
 const Login = () => {
     const img = "https://juntrax.com/blog/wp-content/uploads/2020/10/Expenses-Management-System-Featured-Juntrax.jpg";
-    const [Loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
 
     const submitHandler = async (values) => {
         try {
             setLoading(true);
-            // Replace with the correct URL for your production environment
             const { data } = await axios.post('https://expense-management-u19n.onrender.com/api/v1/users/login', values);
             setLoading(false);
             message.success('Login successful');
@@ -23,7 +19,7 @@ const Login = () => {
             navigate('/');
         } catch (error) {
             setLoading(false);
-            message.error('Something went wrong');
+            message.error(error.response?.data?.message || 'Something went wrong');
         }
     };
 
@@ -36,7 +32,7 @@ const Login = () => {
     return (
         <>
             <div className="login-page">
-                {Loading && <spinner />}
+                {loading && <Spinner />}
                 <div className="row container">
                     <h1 className='text-exp'>Expense Management System</h1>
                     <div className="col-md-6">
