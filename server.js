@@ -19,7 +19,7 @@ connectDb();
 app.use(morgan('dev'));
 app.use(express.json());
 app.use(cors({
-    origin: ['http://localhost:3000', 'https://expense-management-u19n.onrender.com'],
+    origin: ['http://localhost:3000', 'https://expense-management-u19n.onrender.com/'],
     credentials: true
 }));
 
