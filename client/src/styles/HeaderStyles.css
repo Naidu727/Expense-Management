@@ -1,4 +1,4 @@
-.navbar {
+/* .navbar {
     background-color: #6f4e3742 !important;
   }
   .navbar .navbar-brand {
@@ -15,4 +15,25 @@
     margin-top: 0px;
     margin-right: 20px;
   }
+  
+   */
+
+   .navbar {
+    background-color: #0fda6742 !important;
+  }
+  .navbar .navbar-brand {
+    color: #d012da !important;
+    font-weight: bold;
+    font-size: 1.5rem;
+  }
+  
+  .nav-link {
+    font-size: 1.2rem;
+  }
+  
+  .navbar h6 {
+    margin-top: 0px;
+    margin-right: 20px;
+  }
+  
   
