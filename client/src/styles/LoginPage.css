@@ -1,52 +1,129 @@
-/* .login-page {
-    height: 100vh !important;
-    width: 100vw !important;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  } */
-  .login-page {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-image: linear-gradient(to right, #f49702, #fdfdfd, #03fa7a);
-  }
+/* Overall page styling */
+.login-page {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url(5192479.jpg);
+  background-size: cover; /* Ensures the background image covers the entire viewport */
+  background-position: center; /* Centers the background image */
+  background-repeat: no-repeat; /* Prevents repeating the background image */
+  position: relative; /* To position the heading absolutely */
+}
+
+/* Form styling */
+.login-form {
+  background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent white background */
+  padding: 30px;
+  border-radius: 8px; /* Rounded corners for the form */
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 8px 16px; /* Subtle shadow for depth */
+  width: 100%;
+  max-width: 400px; /* Restrict width to a maximum value */
+  box-sizing: border-box; /* Ensures padding is included in the width */
+  z-index: 1; /* Ensures form is above background image */
+}
+
+/* Heading styling */
+.text-exp {
+  text-align: center;
+  font-size: 3rem; /* Larger font size */
+  font-weight: bold;
+  color: hwb(0 97% 1%); /* White color for better contrast */
+  position: absolute; /* Absolute positioning */
+  top: 50px; /* Space from the top */
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%); /* Adjust horizontal centering */
+  z-index: 1; /* Ensure heading is above other elements */
+}
+
+/* Form title */
+.login-form h1 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #344265;
+  margin-bottom: 20px; /* Space below the heading */
+  text-align: center;
+}
+
+/* Form item label styling */
+.login-form .ant-form-item-label label {
+  color: #344265 !important;
+  font-weight: 500;
+}
+
+/* Button styling */
+.login-form button {
+  background-color: #344265;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px; /* Rounded corners for the button */
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.login-form button:hover {
+  background-color: #222222; /* Darker shade for hover effect */
+}
+
+/* Link styling */
+.login-form a {
+  color: #344265;
+  text-decoration: none; /* Removes underline */
+  font-weight: 500;
+}
+
+.login-form a:hover {
+  color: #222222;
+  text-decoration: underline; /* Underline on hover for better visibility */
+}
+
+/* Media Queries */
+
+/* Tablet and small devices */
+@media (max-width: 768px) {
   .login-form {
-    background-color: #b9bcccb6;
-    margin-left: -15px;
-    padding: 30px;
+    padding: 20px;
+    max-width: 90%; /* Adjust width for smaller screens */
   }
-  
+
   .login-form h1 {
-    text-align: center;
-    font-weight: bold;
-    margin: 30px;
-    color: #344265;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
   }
-  
-  .login-form .ant-form-item-label label {
-    color: #344265 !important;
-  }
+
   .login-form button {
-    background-color: #344265;
-    color: white;
-    outline: none;
+    padding: 8px 16px;
+    font-size: 0.9rem;
   }
-  .login-form button:hover {
-    background-color: black;
-    color: white;
+
+  .text-exp {
+    font-size: 1.5rem;
+    top: 10px; /* Adjust top space */
   }
-  .login-form a {
-    color: #344265 !important;
+}
+
+/* Mobile devices */
+@media (max-width: 480px) {
+  .login-form {
+    padding: 15px;
+    max-width: 100%; /* Full width on very small screens */
   }
-  
-  .login-form a:hover {
-    color: black !important;
+
+  .login-form h1 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
   }
-  .text-exp
-  {
-    text-align: center;
+
+  .login-form button {
+    padding: 6px 12px;
+    font-size: 0.8rem;
   }
-  
+
+  .text-exp {
+    font-size: 1.2rem;
+    top: 5px; /* Adjust top space */
+  }
+}
