@@ -1,4 +1,5 @@
 
+
 import React, { useState, useEffect } from 'react';
 import { Modal, Form, Input, Select, message, Table, DatePicker } from "antd";
 import Layout from '../components/Layout/Layout';
@@ -21,7 +22,6 @@ const HomePage = () => {
   const [editable, setEditable] = useState(null);
   const [form] = Form.useForm();
 
-  // Initialize filter values from localStorage if available
   useEffect(() => {
     const storedFrequency = localStorage.getItem('frequency');
     const storedSelectedDate = JSON.parse(localStorage.getItem('selectedDate'));
@@ -82,7 +82,7 @@ const HomePage = () => {
         return;
       }
 
-      const res = await axios.post('transections/get-transection', { userid: user._id, frequency, selectedDate, type });
+      const res = await axios.post('https://expense-management-u19n.onrender.com/api/v1/transections/get-transection', { userid: user._id, frequency, selectedDate, type });
       res.data.sort((a, b) => new Date(b.date) - new Date(a.date));
 
       setLoading(false);
@@ -100,7 +100,7 @@ const HomePage = () => {
   const handleDelete = async (record) => {
     try {
       setLoading(true);
-      await axios.post('/transections/delete-transection', { transactionId: record._id });
+      await axios.post('https://expense-management-u19n.onrender.com/api/v1/transections/delete-transection', { transactionId: record._id });
       setLoading(false);
       message.success('Transaction Deleted Successfully');
       getAllTransactions();
@@ -115,7 +115,7 @@ const HomePage = () => {
       const user = JSON.parse(localStorage.getItem('user'));
       setLoading(true);
       if (editable) {
-        await axios.post('/transections/edit-transection', {
+        await axios.post('https://expense-management-u19n.onrender.com/api/v1/transections/edit-transection', {
           payload: {
             ...values, userid: user._id
           },
@@ -123,7 +123,7 @@ const HomePage = () => {
         });
         message.success('Transaction Updated Successfully');
       } else {
-        await axios.post('/transections/add-transection', { ...values, userid: user._id });
+        await axios.post('https://expense-management-u19n.onrender.com/api/v1/transections/add-transection', { ...values, userid: user._id });
         message.success('Transaction Added Successfully');
       }
       setLoading(false);
@@ -244,3 +244,4 @@ const HomePage = () => {
 }
 
 export default HomePage;
+
