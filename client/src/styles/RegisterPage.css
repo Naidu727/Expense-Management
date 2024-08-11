@@ -1,43 +1,77 @@
 .register-page {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-image: linear-gradient(to right, #c6ffdd, #fbd786, #f7797d);
-  }
-  .register-form {
-    background-color: #fff;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    padding: 20px;
-    width: 30%;
-  }
-  
-  .register-form h2 {
-    margin-top: 10px;
-    text-align: center;
-    font-weight: bold;
-    color: #b87333;
-  }
-  
-  .register-form a {
-    color: #b87333 !important;
-  }
-  
-  .register-form a:hover {
-    color: black !important;
-  }
-  
-  .register-form button {
-    background-color: #b87333;
-    color: white;
-  }
-  
-  .register-form input:focus {
-    border: 1px solid #b87333 !important;
-    color: #b87333;
-  }
-  .register-form button:hover {
-    background-color: black;
-    color: white;
-  }
-  
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: 
+    /* Gradient overlay */
+    linear-gradient(
+      rgba(3, 239, 97, 0.6),
+      rgba(251, 215, 134, 0.6),
+      rgba(227, 2, 189, 0.6)
+    ),
+    /* Background image */
+    url('bgreg.jpg') no-repeat center center;
+  background-size: cover; /* Ensure the background covers the entire container */
+}
+
+.register-form {
+  background-color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 4px 12px;
+  padding: 30px;
+  width: 100%;
+  max-width: 400px; /* Adjust as needed */
+  border-radius: 8px; /* Rounded corners */
+  text-align: center;
+}
+
+.register-form h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-weight: 700;
+  color: #333;
+  font-size: 1.8rem; /* Larger font size */
+}
+
+.register-form a {
+  color: #b87333;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.register-form a:hover {
+  color: #333;
+  text-decoration: underline; /* Underline on hover */
+}
+
+.register-form button {
+  background-color: #b87333;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px; /* Rounded corners */
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.register-form button:hover {
+  background-color: #333;
+  color: white;
+}
+
+.register-form input {
+  border: 1px solid #ccc;
+  border-radius: 4px; /* Rounded corners */
+  padding: 10px;
+  margin-bottom: 15px;
+  width: 100%;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+}
+
+.register-form input:focus {
+  border-color: #b87333;
+  outline: none;
+  color: #333;
+}
