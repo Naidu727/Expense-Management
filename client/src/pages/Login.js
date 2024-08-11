@@ -5,7 +5,7 @@ import axios from 'axios';
 import "../styles/LoginPage.css";
 
 const Login = () => {
-    const img = "https://juntrax.com/blog/wp-content/uploads/2020/10/Expenses-Management-System-Featured-Juntrax.jpg";
+    const img = "https://img.freepik.com/free-vector/flat-design-credit-assessment-concept_23-2149154572.jpg?size=626&ext=jpg&ga=GA1.1.1934738218.1723326938&semt=ais_hybrid";
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
 
