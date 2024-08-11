@@ -1,0 +1,90 @@
+/* General styling for the Analytics component */
+.analytics-container {
+  padding: 20px;
+}
+
+/* Grid container for the four sections */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+/* Individual grid items */
+.grid-item {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border-radius: 8px;
+  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+  overflow: hidden;
+  /* Flex-grow ensures that the grid items take up available space */
+  flex-grow: 1;
+}
+
+/* Styling for cards */
+.card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+/* Card header */
+.card-header {
+  background-color: #f7f7f7;
+  font-weight: bold;
+  padding: 10px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+/* Card body */
+.card-body {
+  padding: 20px;
+  flex-grow: 1;
+}
+
+/* Styling for Progress component */
+.progress-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.progress-circle {
+  margin: 10px;
+}
+
+/* Category sections */
+.category-card {
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+}
+
+/* Heading styles */
+h4 {
+  margin-bottom: 15px;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .grid-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Optional: Adjust card body padding and margins for small screens */
+@media (max-width: 480px) {
+  .card-body {
+    padding: 10px;
+  }
+
+  .progress-circle {
+    width: 60px;
+    height: 60px;
+  }
+}
