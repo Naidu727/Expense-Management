@@ -65,9 +65,8 @@
 }
 
 .login-form button:hover {
-  background-color: #222222; /* Darker shade for hover effect */
+  background-color: #07f169; /* Darker shade for hover effect */
 }
-
 /* Link styling */
 .login-form a {
   color: #344265;
