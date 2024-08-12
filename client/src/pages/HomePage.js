@@ -8,6 +8,7 @@ import Spinner from '../components/Layout/Spinner';
 import moment from 'moment';
 import { UnorderedListOutlined, AreaChartOutlined, EditOutlined, DeleteOutlined } from '@ant-design/icons';
 import Analytics from '../components/Analytics';
+import "../styles/HomePage.css";
 
 const { RangePicker } = DatePicker;
 
