@@ -1,26 +1,7 @@
-/* .navbar {
-    background-color: #6f4e3742 !important;
-  }
-  .navbar .navbar-brand {
-    color: #6f4e37 !important;
-    font-weight: bold;
-    font-size: 1.5rem;
-  }
-  
-  .nav-link {
-    font-size: 1.2rem;
-  }
-  
-  .navbar h6 {
-    margin-top: 0px;
-    margin-right: 20px;
-  }
-  
-   */
-
-   .navbar {
+ .navbar {
     background-color: #0fda6742 !important;
   }
+  
   .navbar .navbar-brand {
     color: #d012da !important;
     font-weight: bold;
@@ -31,9 +12,89 @@
     font-size: 1.2rem;
   }
   
-  .navbar h6 {
-    margin-top: 0px;
-    margin-right: 20px;
+  /* Remove styles related to the toggler */
+  .navbar-toggler {
+    display: none;
   }
   
+  .navbar-collapse {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .nav-item {
+    margin-left: 15px; /* Space between nav items */
+    margin-right: 15px; /* Space between nav items */
+    margin-top: 7px;
+  }
   
+  /* Style for the nav-link within nav items */
+  .nav-item .nav-link {
+    font-size: 1.2rem;
+    color: hsl(27, 95%, 50%); /* Adjust color as needed */
+    padding: 10px 15px; /* Adjust padding for better spacing */
+    transition: color 0.3s ease; /* Smooth transition for hover effects */
+    font-weight: bold;
+  }
+  
+  /* Hover effect for nav-link */
+  .nav-item .nav-link:hover {
+    color: #0056b3; /* Change color on hover */
+    background-color: #e9ecef; /* Optional: Add background color on hover */
+    border-radius: 5px; /* Optional: Add rounded corners */
+  }
+  .btn {
+    font-size: 1rem;
+    margin-left: 10px; /* Adjust this value as needed */
+    margin-right: 10px; /* Adjust this value as needed */
+    margin-top: 7px;
+  }
+  
+  /* Media Queries */
+  
+  /* Small devices (phones, 576px and below) */
+  @media (max-width: 576px) {
+    .navbar .navbar-brand {
+      font-size: 1.2rem;
+      text-align: center;
+      margin: 0 auto;
+    }
+    
+    .nav-link {
+      font-size: 1rem;
+    }
+  
+    .btn {
+      font-size: 0.9rem;
+      width: 100%;
+    }
+  }
+  
+  /* Medium devices (tablets, 576px to 768px) */
+  @media (min-width: 577px) and (max-width: 768px) {
+    .navbar .navbar-brand {
+      font-size: 1.4rem;
+    }
+    
+    .nav-link {
+      font-size: 1.1rem;
+    }
+    
+    .btn {
+      font-size: 1rem;
+    }
+  }
+  
+  /* Large devices (desktops, 768px and up) */
+  @media (min-width: 769px) {
+    .navbar .navbar-brand {
+      font-size: 1.5rem;
+    }
+    
+    .nav-link {
+      font-size: 1.2rem;
+    }
+    
+    .btn {
+      font-size: 1.1rem;
+    }
+  }
