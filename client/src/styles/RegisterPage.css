@@ -11,7 +11,7 @@
       rgba(227, 2, 189, 0.6)
     ),
     /* Background image */
-    url('bgreg.jpg') no-repeat center center;
+    url('bgregstr.jpg') no-repeat center center;
   background-size: cover; /* Ensure the background covers the entire container */
 }
 
