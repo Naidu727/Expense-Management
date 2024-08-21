@@ -286,15 +286,25 @@ const HomePage = () => {
     {
       title: 'Date',
       dataIndex: 'date',
-      render: (text) => <span>{moment(text).format("YYYY-MM-DD")}</span>
+      render: (text) => <span style={{ fontWeight: 'bold' }}>{moment(text).format("YYYY-MM-DD")}</span>,
     },
     {
       title: 'Amount',
-      dataIndex: 'amount'
+      dataIndex: 'amount',
+       render: (text, record) => (
+        <span style={{ color: record.type === 'income' ? 'green' : 'red', fontWeight: 'bold' }}>
+          {record.type === 'income' ? `+ ₹${text}` : `- ₹${text}`}
+        </span>
+      ),
     },
     {
       title: 'Type',
-      dataIndex: 'type'
+      dataIndex: 'type',
+       render: (text) => (
+        <span style={{ color: text === 'income' ? 'green' : 'red', fontWeight: 'bold' }}>
+          {text.charAt(0).toUpperCase() + text.slice(1)}
+        </span>
+      ),
     },
     {
       title: 'Category',
