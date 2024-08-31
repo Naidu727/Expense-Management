@@ -8,7 +8,7 @@ Registration Form
 
 Incomes And Expenses
 
-![Homepage](https://github.com/user-attachments/assets/d0e73713-e758-406e-87ad-9338edb9b643)
+![Screenshot 2024-09-01 015048](https://github.com/user-attachments/assets/c4feaeeb-4f3e-49b9-8831-434dde3fd31d)
 
 Analytics
 
